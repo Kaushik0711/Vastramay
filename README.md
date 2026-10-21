@@ -56,8 +56,7 @@ Comprehensive project documentation is maintained in the [`docs/`](docs/) direct
   - **Headings & Display:** *EB Garamond* (historical Indian court elegance).
   - **Interface & Body:** *Sora* (clean, legible geometric sans-serif).
 - **Geometry:** Strict **0px border radius** across all buttons, cards, images, inputs, and drawers (modals at most 2px `rounded-sm`).
-- **Currency:** Indian Rupees (INR — `₹`), managed in authoritative integer paise internally.
-- **Git Branch:** Verified on branch `Vastramay`.
+- **Git Branch:** Active production branch: `main`.
 
 ---
 
@@ -153,7 +152,7 @@ npm run preview
 ```
 
 ### Git Branch Policy
-All active work is developed and committed on branch `Vastramay`.
+All active work is committed on branch `main`.
 
 ---
 

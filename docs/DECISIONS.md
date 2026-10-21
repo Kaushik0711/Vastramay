@@ -10,7 +10,7 @@ The following decisions and technical components are fully implemented, verified
 
 | Category | Decision / Feature | Verification Source | Status |
 | :--- | :--- | :--- | :--- |
-| **Project Identity** | Project name: **Vastramay**<br>Domain: `vastramay.in`<br>Requested Git branch: `Vastramay` | `package.json`, `index.html`, `src/config/brand.ts`, `git branch` | **Verified & Active** (`Vastramay` branch) |
+| **Project Identity** | Project name: **Vastramay**<br>Domain: `vastramay.in`<br>Active Git branch: `main` | `package.json`, `index.html`, `src/config/brand.ts`, `git branch` | **Verified & Active** (`main` branch) |
 | **Framework & Build** | React 19 (`^19.3.1`) + TypeScript (`~6.0.3`) + Vite (`^8.3.4`) | `package.json`, `vite.config.ts`, `tsconfig.json` | **Verified & Active** |
 | **Styling Architecture** | Tailwind CSS 3.4.17 + Sass (SCSS `^1.89.2`)<br>Tailwind directives isolated to `src/index.css`<br>SCSS partials (`_tokens.scss`, `_base.scss`, `_animations.scss`) imported in `src/styles/global.scss` | `tailwind.config.ts`, `src/styles/` | **Verified & Active** |
 | **Color System** | 60/30/10 locked luxury palette:<br>• White (`#FFFFFF`) — base negative space<br>• Black (`#101010`) — typography, structural borders<br>• Royal Plum Purple (`#6D28D9`) — focus rings, active accents | `src/config/tokens.ts`, `src/styles/_tokens.scss`, `tailwind.config.ts` | **Verified & Active** |

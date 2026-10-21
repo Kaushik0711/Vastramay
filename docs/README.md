@@ -5,7 +5,7 @@
 ## Project identity
 
 - **Website / project name:** Vastramay
-- **Git branch name:** `Vastramay` (confirm exact capitalization against the repository's existing branch policy)
+- **Git branch name:** `main`
 - **Product type:** Premium clothing e-commerce storefront
 - **Visual direction:** Modern, youthful, editorial fashion; flat UI with precise geometry
 - **Colors:** White `#FFFFFF`, black `#101010`, purple `#6D28D9`
