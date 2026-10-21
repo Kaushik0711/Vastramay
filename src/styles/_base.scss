@@ -119,3 +119,14 @@ html {
   }
 }
 
+// ─── Editorial Hero Grid Composition ────────────────────────────────────────
+// Strictly matches: minmax(0, 36.5fr) minmax(0, 33.5fr) minmax(0, 13fr) minmax(0, 17fr)
+.editorial-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: minmax(0, 36.5fr) minmax(0, 33.5fr) minmax(0, 13fr) minmax(0, 17fr);
+  }
+}
+

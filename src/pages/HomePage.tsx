@@ -2,9 +2,6 @@ import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  ShieldCheck,
-  Truck,
-  RefreshCw,
   Sparkles,
   Scissors,
   Layers,
@@ -17,6 +14,7 @@ import { newsletterService } from '@/services';
 import { ProductCard, Featured3DSlider } from '@/components/product';
 import { Button, Badge, LoadingIndicator } from '@/components/ui';
 import { SEO, EditorialTextReveal } from '@/components/common';
+import { HomeHero } from '@/components/home';
 
 export default function HomePage() {
   const [journalEmail, setJournalEmail] = useState('');
@@ -25,14 +23,6 @@ export default function HomePage() {
     text: string;
   } | null>(null);
   const [isSubscribing, setIsSubscribing] = useState(false);
-
-  // Parallax tracking references for editorial campaign imagery
-  const heroImageRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress: heroProgress } = useScroll({
-    target: heroImageRef,
-    offset: ['start start', 'end start'],
-  });
-  const heroImageY = useTransform(heroProgress, [0, 1], ['0%', '10%']);
 
   const campaignRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: campaignProgress } = useScroll({
@@ -90,131 +80,9 @@ export default function HomePage() {
       />
 
       {/* ─────────────────────────────────────────────────────────────
-          2. Large Editorial Hero Section
+          2. Editorial Fashion Collage Hero & Shopping Benefits Strip
       ───────────────────────────────────────────────────────────── */}
-      <section
-        id="editorial-hero"
-        aria-label="New Season Campaign Hero"
-        className="relative border-b border-brand-subdued-border bg-white"
-      >
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[calc(100vh-116px)] sm:min-h-[640px] lg:min-h-[720px]">
-          {/* Left Text Column: Disciplined Whitespace & Clear Typography */}
-          <div className="lg:col-span-5 flex flex-col justify-center px-6 sm:px-10 md:px-12 lg:px-16 py-12 sm:py-16 lg:py-24 z-10 order-2 lg:order-1">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <div className="mb-4 sm:mb-6">
-                <Badge variant="purple" size="sm">
-                  Autumn / Winter '26 Collection
-                </Badge>
-              </div>
-
-              {/* Accessible Editorial Hero Title Reveal */}
-              <EditorialTextReveal
-                text="Contemporary Style. Distinctive by Design."
-                italicIndices={[2, 3]}
-                className="font-display text-4xl sm:text-5xl lg:text-[4rem] xl:text-[4.25rem] leading-[1.04] text-brand-black tracking-tight mb-6"
-              />
-
-              <p className="font-body text-body-base sm:text-body-lg text-brand-subdued-medium mb-8 sm:mb-10 max-w-md leading-relaxed">
-                Handcrafted artisanal silhouettes, heritage handloom silks, and refined contemporary tailoring.
-                Consciously designed for celebrations of timeless distinction.
-              </p>
-
-              {/* Primary & Secondary Dual CTAs */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                <Link to="/shop?filter=new" id="hero-primary-cta">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    rightIcon={<ArrowRight size={16} />}
-                    className="w-full sm:w-auto"
-                  >
-                    Explore The New Season
-                  </Button>
-                </Link>
-                <Link to="/collections" id="hero-secondary-cta">
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    className="w-full sm:w-auto"
-                  >
-                    View Collections
-                  </Button>
-                </Link>
-              </div>
-
-              {/* Editorial provenance footnote */}
-              <div className="mt-12 sm:mt-16 pt-6 border-t border-brand-subdued-border flex items-center justify-between text-caption text-brand-subdued-low">
-                <span>Artisanal Craftsmanship</span>
-                <span>Bengaluru · Varanasi · Kashmir</span>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Image Column: Authentic Editorial Campaign Photography with Subtle Parallax */}
-          <div
-            ref={heroImageRef}
-            className="lg:col-span-7 relative bg-brand-subdued-surface min-h-[380px] sm:min-h-[480px] lg:min-h-full overflow-hidden order-1 lg:order-2 border-b lg:border-b-0 lg:border-l border-brand-subdued-border"
-          >
-            <motion.div
-              style={{ y: heroImageY }}
-              className="w-full h-[112%] -top-[6%] relative will-change-transform"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1800&q=85"
-                alt="Editorial campaign presentation of handcrafted Vastramay contemporary fashion"
-                className="w-full h-full object-cover object-top"
-                loading="eager"
-              />
-            </motion.div>
-
-            {/* Subtle editorial watermark */}
-            <div className="absolute bottom-4 right-4 bg-white/90 px-3 py-1 text-[10px] uppercase font-semibold tracking-widest text-brand-black border border-brand-subdued-border z-10">
-              Editorial '26
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─────────────────────────────────────────────────────────────
-          Features & Trust Strip
-      ───────────────────────────────────────────────────────────── */}
-      <section className="border-b border-brand-subdued-border bg-white" id="trust-strip">
-        <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-brand-subdued-border">
-          {[
-            {
-              icon: <Truck size={18} className="text-brand-purple" />,
-              title: 'Complimentary Shipping',
-              desc: 'On all domestic orders across India over ₹1,999',
-            },
-            {
-              icon: <RefreshCw size={18} className="text-brand-purple" />,
-              title: '7-Day Return & Size Exchange',
-              desc: 'Seamless doorstep pick-up and instant exchanges',
-            },
-            {
-              icon: <ShieldCheck size={18} className="text-brand-purple" />,
-              title: 'Authentic Handloom Certified',
-              desc: 'Pure silks, natural dyes, and GI-tagged weaves',
-            },
-          ].map((feature) => (
-            <div key={feature.title} className="flex items-center gap-4 py-5 px-6 sm:px-8">
-              <div className="shrink-0">{feature.icon}</div>
-              <div>
-                <p className="font-body text-body-sm font-semibold text-brand-black">
-                  {feature.title}
-                </p>
-                <p className="font-body text-caption text-brand-subdued-medium mt-0.5">
-                  {feature.desc}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <HomeHero />
 
       {/* ─────────────────────────────────────────────────────────────
           3. New Arrivals Product Section
