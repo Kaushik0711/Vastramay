@@ -1,0 +1,78 @@
+// ─── Animations ─────────────────────────────────────────────────────────────
+// Complex animations that go beyond what Tailwind utility classes offer.
+
+@keyframes skeleton-pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+  background-color: #e5e5e5;
+}
+
+// Staggered fade-in for lists
+@for $i from 1 through 12 {
+  .stagger-#{$i} {
+    animation-delay: #{$i * 0.06}s;
+  }
+}
+
+// Page transition
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.4s var(--ease-out-expo),
+    transform 0.4s var(--ease-out-expo);
+}
+
+// ─── Scroll-Driven Progress Bar Animation ───────────────────────────────────
+// Uses native scroll() animation-timeline where supported (compositor thread)
+@keyframes grow-scroll-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .native-scroll-progress-bar {
+      transform-origin: 0 50%;
+      animation: grow-scroll-progress auto linear;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+
+// ─── Reduced Motion Overrides ───────────────────────────────────────────────
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .custom-cursor-container {
+    display: none !important;
+  }
+}
+

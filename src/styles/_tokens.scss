@@ -1,0 +1,48 @@
+// ─── Design Tokens ──────────────────────────────────────────────────────────
+// Custom properties that complement Tailwind's utility classes.
+// Use these for authored CSS, custom pseudo-elements, and complex state selectors.
+
+:root {
+  // Locked Palette
+  --color-white: #ffffff;
+  --color-black: #101010;
+  --color-purple: #6d28d9;
+  --color-purple-dark: #5b21b6;
+  --color-purple-active: #4c1d95;
+  --color-purple-light: #7c3aed;
+  --color-purple-subtle: rgba(109, 40, 217, 0.08);
+
+  // Controlled Opacities of Black #101010 (subdued texts & thin borders)
+  --color-black-high: rgba(16, 16, 16, 0.88);
+  --color-black-medium: rgba(16, 16, 16, 0.65);
+  --color-black-low: rgba(16, 16, 16, 0.45);
+  --color-border: rgba(16, 16, 16, 0.15);
+  --color-border-subtle: rgba(16, 16, 16, 0.08);
+  --color-surface: rgba(16, 16, 16, 0.03);
+  --color-surface-hover: rgba(16, 16, 16, 0.06);
+
+  // Feedback Colors
+  --color-error: #dc2626;
+  --color-error-subtle: rgba(220, 38, 38, 0.08);
+  --color-success: #059669;
+  --color-success-subtle: rgba(5, 150, 105, 0.08);
+
+  // Typography
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-body: 'Sora', system-ui, sans-serif;
+
+  // Geometry (Locked at 0px, modal at most 2px)
+  --radius-base: 0px;
+  --radius-modal: 2px;
+
+  // Spacing & Layout
+  --header-height: 4rem;
+  --container-max: 1440px;
+  --container-narrow: 768px;
+
+  // Transitions
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms var(--ease-out-expo);
+  --transition-slow: 400ms var(--ease-out-expo);
+}

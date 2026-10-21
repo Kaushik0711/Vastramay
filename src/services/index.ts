@@ -1,0 +1,13 @@
+export { searchService, POPULAR_SEARCH_TERMS } from './searchService';
+export type { SearchFilters } from './searchService';
+export { newsletterService } from './newsletterService';
+export type { NewsletterSubscriptionResult } from './newsletterService';
+export { catalogService } from './catalogService';
+export { couponService, VALID_COUPONS } from './couponService';
+export type { Coupon, CouponValidationResult } from './couponService';
+export { cartValidationService } from './cartValidationService';
+export type { CartValidationIssue, CartValidationReport } from './cartValidationService';
+export { paymentService } from './paymentService';
+export type { RazorpayOrderResponse, PaymentVerificationPayload, PaymentExecutionResult } from './paymentService';
+export { orderService } from './orderService';
+export type { CreateOrderParams, CreateOrderResponse } from './orderService';

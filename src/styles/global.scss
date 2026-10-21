@@ -1,0 +1,7 @@
+// ─── Global Styles ──────────────────────────────────────────────────────────
+// Aggregates all SCSS partials in the correct order.
+// Tailwind directives live in index.css (loaded separately).
+
+@use 'tokens';
+@use 'base';
+@use 'animations';

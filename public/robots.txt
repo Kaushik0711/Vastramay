@@ -1,0 +1,10 @@
+# Vastramay Atelier — Robots Configuration
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /order/
+
+# Sitemap Location
+Sitemap: https://vastramay.in/sitemap.xml
